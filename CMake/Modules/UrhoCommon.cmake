@@ -634,10 +634,6 @@ else ()
                 endif ()
                 set (CMAKE_C_FLAGS_RELEASE "-Oz -DNDEBUG")
                 set (CMAKE_CXX_FLAGS_RELEASE "-Oz -DNDEBUG")
-                # CMake does not treat Emscripten as a valid platform yet, certain platform-specific variables cannot be set in the
-                # toolchain file as they get overwritten by CMake internally as per Linux platform default, so set them here for now
-                set (CMAKE_EXECUTABLE_SUFFIX_C .html)
-                set (CMAKE_EXECUTABLE_SUFFIX_CXX .html)
                 # Linker flags
                 set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -s NO_EXIT_RUNTIME=1 -s ERROR_ON_UNDEFINED_SYMBOLS=1")
                 set (CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} -O3 -s AGGRESSIVE_VARIABLE_ELIMINATION=1")     # Remove variables to make the -O3 regalloc easier
